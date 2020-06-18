@@ -1,0 +1,69 @@
+
+<div class="bloco mt-1 text-secondary">
+  <div class="row">
+    <div class="col-6"><h3>Serviços</h3></div>
+    <div class="col-6" align="right">
+      <button  class="btn btn-success" data-toggle="modal" (click)="titulomodal='Adicionar'" data-target="#exampleModalCenter">Adicionar</button>
+    </div>
+  </div>
+    <hr/>
+    <table  class="table table-hover">
+      <thead class="table-dark bg-secondary">
+        <tr >
+          <th style="display: none;">ID</th>
+          <th>Descrição</th>
+          <th>Valor</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let dataservic of dataservico">
+        <td style="display: none;">{{dataservic.id_servico}}</td>
+        <td>{{dataservic.ds_descricao}}</td>
+        <td>{{dataservic.ds_valor}}</td>
+        <td align="right" style="width: 20%;" ><button data-toggle="modal"
+          (click)="titulomodal='Editar';servico.id = this.dataservic.id_servico; servico.descricao = this.dataservic.ds_descricao; servico.valor = teste(this.dataservic.ds_valor) "
+          data-target="#exampleModalCenter" class="btn btn-primary btn-sm mr-1">Editar</button><button class="btn btn-danger btn-sm mld-1" (click)="deletar(this.dataservic.id_servico)">Excluir</button></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <!--form>
+        <div>
+            Descrição
+         <input class="form-control form-control-sm" type="text" />
+        </div>
+    </form-->
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" data-backdrop="static" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">{{titulomodal}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="servico.id = ''; servico.descricao=''; servico.valor=0" >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div style="font-size: 14px;" class="modal-body">
+        <ngb-alert class="fadeIn first" *ngIf="error" type="danger" (close)="error = false" >
+          <strong>{{MsgPrincipal}}</strong>{{MsgDescritiva}}
+        </ngb-alert>
+        <div class="col-sm-6 row "><Label>Id</Label>
+          <input  disabled [(ngModel)]="servico.id" class="form-control form-control-sm">
+        </div>
+
+        <Label>valor</Label>
+        <Label>Descrição</Label>
+        <input required maxlength="50" [(ngModel)]="servico.descricao" class="form-control form-control-sm">
+        <Label>valor</Label>
+        <input required maxlength="20" currencyMask [(ngModel)]="servico.valor" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" class="form-control form-control-sm">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"
+         (click)="servico.id = ''; servico.descricao=''; servico.valor=0
+        " data-dismiss="modal">Sair</button>
+        <button type="button" (click)="salvar()" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>

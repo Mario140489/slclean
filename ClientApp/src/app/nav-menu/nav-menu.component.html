@@ -1,0 +1,38 @@
+<div class="modal fade left " id="sidebar-left" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+  <div class="modal-content">
+    <nav class="navbar navbar-dark bg-secondary ">
+      <a class="navbar-brand" href="#">{{sidebar}}</a>
+    </nav>
+    <div class="row">
+      <div class="col-12">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a [routerLink]="['/Serviços']" class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab">Serviços
+       </a>
+          <a [routerLink]="['/TipoVeiculo']" class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab">Tipo Veiculo
+         </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+    <nav class="navbar navbar-dark bg-secondary">
+      <div class="row btn-group">
+        &nbsp;
+      <a href="#" style="font-size: 25px;" class="text-light mr-1  ml-2"  ngbTooltip="Menu"
+      data-toggle="modal" data-target="#sidebar-left"><span><i class="fas fa-bars"></i></span></a>
+      &nbsp;<a class="navbar-brand "> SyS</a>
+    </div>
+      <div class="btn-group">
+        <!--a href="#" ngbTooltip="Aplicativos" style="font-size: 25px;" class="text-light mr-1"><span><i  class="fab fa-buromobelexperte"></i></span></a-->
+        <a href="#"  class=" nav-link text-light">
+          <span><i class="far fa-user"></i> </span> <label class="ocultar ml-1">{{usuario}}</label>
+        </a>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
