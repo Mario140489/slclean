@@ -30,7 +30,7 @@
     "core-js": "3.6.4",
     "datatables.net": "^1.10.21",
     "datatables.net-dt": "^1.10.21",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "ng2-currency-mask": "^9.0.2",
     "ngx-mask": "^9.1.2",
     "oidc-client": "^1.9.1",
